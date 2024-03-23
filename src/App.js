@@ -1,6 +1,10 @@
+import WeatherPage from "./pages/WeatherPage";
+
 function App() {
   return (
-    <div className="App">Hello world</div>
+    <>
+      <WeatherPage />
+    </>
   );
 }
 
