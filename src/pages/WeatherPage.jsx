@@ -99,7 +99,7 @@ function WeatherPage() {
                 />
             </div>
 
-            {(latitude && longitude) || city ?
+            {latitude && longitude ?
                 <div className="grid lg:grid-cols-6 gap-y-5">
                     <WeatherCard latitude={latitude} longitude={longitude} />
                     <ForecastsCard latitude={latitude} longitude={longitude} />
