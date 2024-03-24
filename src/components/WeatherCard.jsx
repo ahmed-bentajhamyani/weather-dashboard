@@ -48,7 +48,7 @@ export default function WeatherCard({ latitude, longitude, city }) {
     }, [city]);
 
     return (
-        <section className="lg:col-span-4 flex flex-wrap">
+        <main className="lg:col-span-4 flex flex-wrap">
             <div className="w-full px-2">
                 {weather?.error ?
                     <div className="mx-4 my-8">City not found</div>
@@ -89,6 +89,6 @@ export default function WeatherCard({ latitude, longitude, city }) {
                     </div>
                 }
             </div>
-        </section >
+        </main>
     )
 }

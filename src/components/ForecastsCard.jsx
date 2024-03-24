@@ -30,7 +30,7 @@ export default function ForecastsCard({ latitude, longitude }) {
     }, [latitude, longitude]);
 
     return (
-        <section className="lg:col-span-2 flex flex-wrap">
+        <aside className="lg:col-span-2 flex flex-wrap">
             <div className="w-full px-2">
                 <div className="bg-gray-900 text-white border border-gray-700 relative min-w-0 break-words rounded-3xl overflow-hidden shadow-sm mb-4 w-full">
                     <div className="px-6 py-6 relative">
@@ -44,6 +44,6 @@ export default function ForecastsCard({ latitude, longitude }) {
                     </div>
                 </div>
             </div>
-        </section>
+        </aside>
     )
 }
