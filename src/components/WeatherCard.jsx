@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import WeatherService from '../services/WeatherService';
 import dateNowFunction from '../utils/dateNowFunction';
+import WeatherService from '../services/WeatherService';
 
 export default function WeatherCard({ latitude, longitude, city }) {
     const [dateNow, setDateNow] = useState(null);
@@ -11,10 +11,8 @@ export default function WeatherCard({ latitude, longitude, city }) {
     }, []);
 
     useEffect(() => {
-        const weatherService = new WeatherService();
-
         const getWeatherNow = async () => {
-            await weatherService.getWeaderNow(latitude, longitude)
+            await WeatherService.getWeaderNow(latitude, longitude)
                 .then((res) => {
                     console.log('res', res);
                     setWeather({ data: res.data, loading: false, error: false });
@@ -32,10 +30,8 @@ export default function WeatherCard({ latitude, longitude, city }) {
     }, [latitude, longitude]);
 
     useEffect(() => {
-        const weatherService = new WeatherService();
-
         const getWeatherNowByCityName = async () => {
-            await weatherService.getWeaderNowByCityName(city)
+            await WeatherService.getWeaderNowByCityName(city)
                 .then((res) => {
                     console.log('res', res);
                     setWeather({ data: res.data, loading: false, error: false });

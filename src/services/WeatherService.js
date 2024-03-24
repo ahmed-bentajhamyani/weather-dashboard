@@ -1,11 +1,11 @@
 import axios from "axios";
 
-class WeatherService {
-    URL = process.env.REACT_APP_API_URL;
-    GEO_URL = process.env.REACT_APP_API_GEO_URL;
-    API_KEY = process.env.REACT_APP_API_KEY;
+const WeatherService = {
+    URL: process.env.REACT_APP_API_URL,
+    GEO_URL: process.env.REACT_APP_API_GEO_URL,
+    API_KEY: process.env.REACT_APP_API_KEY,
 
-    async isItCity(name) {
+    isItCity: async function (name) {
         return await axios.get(this.GEO_URL, {
             params: {
                 q: name,
@@ -13,9 +13,9 @@ class WeatherService {
                 appid: this.API_KEY,
             },
         });
-    }
+    },
 
-    async getWeaderNow(latitude, longitude) {
+    getWeaderNow: async function (latitude, longitude) {
         return await axios.get(this.URL + 'weather', {
             params: {
                 lat: latitude,
@@ -23,9 +23,9 @@ class WeatherService {
                 appid: this.API_KEY,
             },
         });
-    }
+    },
 
-    async getForecast(latitude, longitude) {
+    getForecast: async function (latitude, longitude) {
         return await axios.get(this.URL + 'forecast', {
             params: {
                 lat: latitude,
@@ -33,18 +33,18 @@ class WeatherService {
                 appid: this.API_KEY,
             },
         });
-    }
+    },
 
-    async getWeaderNowByCityName(city) {
+    getWeaderNowByCityName: async function (city) {
         return await axios.get(this.URL + 'weather', {
             params: {
                 q: city,
                 appid: this.API_KEY,
             },
         });
-    }
+    },
 
-    async getForecastByCityName(city) {
+    getForecastByCityName: async function (city) {
         return await axios.get(this.URL + 'forecast', {
             params: {
                 q: city,
@@ -52,6 +52,6 @@ class WeatherService {
             },
         });
     }
-}
+};
 
 export default WeatherService;

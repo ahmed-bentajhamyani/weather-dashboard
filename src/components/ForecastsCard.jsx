@@ -7,10 +7,8 @@ export default function ForecastsCard({ latitude, longitude }) {
     const [forecasts, setForecasts] = useState([]);
 
     useEffect(() => {
-        const weatherService = new WeatherService();
-
         const getForecast = async () => {
-            await weatherService.getForecast(latitude, longitude)
+            await WeatherService.getForecast(latitude, longitude)
                 .then((res) => {
                     console.log('res', res);
                     if (res?.data.list) {

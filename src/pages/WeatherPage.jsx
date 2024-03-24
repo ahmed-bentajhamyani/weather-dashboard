@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import WeatherCard from '../components/WeatherCard';
 import ForecastsCard from '../components/ForecastsCard';
-import WeatherService from '../services/WeatherService';
 import SearchBox from '../components/SearchBox';
+import WeatherService from '../services/WeatherService';
 
 function WeatherPage() {
     const [latitude, setLatitude] = useState(null);
@@ -41,10 +41,8 @@ function WeatherPage() {
 
     // search the city
     useEffect(() => {
-        const weatherService = new WeatherService();
-
         const isItCity = async (inputResult) => {
-            await weatherService.isItCity(inputResult)
+            await WeatherService.isItCity(inputResult)
                 .then((res) => {
                     console.log('res', res);
                     setSearchResult(res.data);
