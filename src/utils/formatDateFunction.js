@@ -23,10 +23,9 @@ export default function formatDateFunction(dateToFormat) {
         'Sat',
     ];
 
-    const currentDate = new Date();
-    const month = dateToFormat.slice(6, 7);
-    let day = dateToFormat.slice(8, 10) - currentDate.getDate() + currentDate.getDay();
-    if (day >= 7) day = day - 7;
-    
-    return { day: WeekDays[day], date: dateToFormat.slice(8, 10), month: months[month] };
+    const date = new Date(dateToFormat);
+
+    console.log(`${WeekDays[date.getDay()]} ${date.getDate()} ${months[date.getMonth()]}`);
+
+    return { day: WeekDays[date.getDay()], date: date.getDate(), month: months[date.getMonth()] };
 }
